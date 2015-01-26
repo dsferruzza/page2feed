@@ -1,0 +1,42 @@
+@(feed: models.Feed, firstEntry: Boolean)
+@project_name = {page2feed}
+@project_url = {https://github.com/dsferruzza/@project_name}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>@feed.title</title>
+	<link href="@feed.link" />@*
+	<atom:link href="@routes.Feed.url(feed.link)" rel="self" type="application/atom+xml" />*@
+	<updated>@feed.updated</updated>
+	<id>urn:uuid:@feed.id</id>
+	<generator uri="@project_url">@project_name</generator>
+	<author>
+		<name>@project_name</name>
+		<uri>@project_url</uri>
+	</author>
+
+	@for(entry <- feed.entries) {
+	<entry>
+		<title>New update: @entry.title</title>
+		<link href="@feed.link" />
+		<id>urn:uuid:@entry.id</id>
+		<updated>@entry.updated</updated>
+		<content type="html"><![CDATA[
+			<p>Page content has changed!</p>
+			<p><a href="@feed.link">Go to the page</a></p>
+		]]></content>
+	</entry>
+	}
+	@if(firstEntry) {
+	<entry>
+		<title>Now monitoring: @feed.link</title>
+		<link href="@feed.link" />
+		<id>urn:uuid:@feed.id</id>
+		<updated>@feed.created</updated>
+		<content type="html"><![CDATA[
+			<p>Now monitoring page <a href="@feed.link">@feed.link</a></p>
+		]]></content>
+	</entry>
+	}
+
+</feed>
