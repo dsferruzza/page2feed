@@ -6,6 +6,8 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.11.5"
 
+scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature")
+
 libraryDependencies ++= Seq(
 	jdbc,
 	anorm,
