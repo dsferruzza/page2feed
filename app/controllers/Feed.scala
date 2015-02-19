@@ -56,7 +56,7 @@ object Feed extends Controller {
 					}
 					
 					// Create a content
-					val content = new models.Content(UUID.randomUUID, page.id, title, body, res.body)
+					val content = new models.Content(UUID.randomUUID, page.id, existingPage.isEmpty, title, body, res.body)
 					if (content.isNew) {
 						models.Content.create(content)
 					}

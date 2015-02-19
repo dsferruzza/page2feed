@@ -22,7 +22,11 @@
 		<id>urn:uuid:@entry.id</id>
 		<updated>@entry.updated</updated>
 		<content type="html"><![CDATA[
+			@if(entry.content == "") {
 			<p>Page content has changed!</p>
+			} else {
+			<pre class="diff">@entry.content</pre>
+			}
 			<p><a href="@feed.link">Go to the page</a></p>
 		]]></content>
 	</entry>
