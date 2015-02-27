@@ -13,6 +13,6 @@ libraryDependencies ++= Seq(
 	anorm,
 	cache,
 	ws,
-	"org.postgresql" % "postgresql" % "9.4-1200-jdbc41",
+	"org.postgresql" % "postgresql" % "9.4-1201-jdbc41",
 	"net.ruippeixotog" %% "scala-scraper" % "0.1.1"
 )
