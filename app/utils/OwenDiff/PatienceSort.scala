@@ -30,7 +30,7 @@ import scala.collection.immutable.HashMap
 
 object PatienceSort {
     // Find the longest increasing subsequence
-    def LIS[A <% Ordered[A]](source : Traversable[A]) : Traversable[A] = {
+    def LIS[A](source : Traversable[A])(implicit ev: A => Ordered[A]) : Traversable[A] = {
         // Take a list of pile tops, a hashmap of backpointers
         // and an element. Add the element to the piles and backpointers.
         def createBackPointers(pileAndBackPointers: (List[A],
@@ -75,8 +75,8 @@ object PatienceSort {
 
     // Calculate the insertion position of elem in elems,
     // using a binary search.
-    def bisect[A <% Ordered[A]](elems : Seq[A], elem : A,
-      lo : Int = 0, hi : Option[Int] = None) : Int = {
+    def bisect[A](elems : Seq[A], elem : A,
+      lo : Int = 0, hi : Option[Int] = None)(implicit ev: A => Ordered[A]) : Int = {
         if (lo < 0) {
             throw new IllegalArgumentException("Lower threshold out of range")
         }
