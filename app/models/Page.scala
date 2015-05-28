@@ -1,12 +1,13 @@
 package models
 
-import play.api.Play.current
-import play.api.db._
 import anorm._
+import anorm.JodaParameterMetaData._
 import anorm.SqlParser._
-import utils.AnormType._
 import java.util.UUID
 import org.joda.time.DateTime
+import play.api.Play.current
+import play.api.db._
+import utils.AnormType._
 
 /** A page to monitor */
 case class Page(id: UUID, created_at: DateTime, url: String, hits: Long, last_fetch: DateTime) {

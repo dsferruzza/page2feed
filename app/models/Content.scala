@@ -1,12 +1,13 @@
 package models
 
-import play.api.Play.current
-import play.api.db._
 import anorm._
+import anorm.JodaParameterMetaData._
 import anorm.SqlParser._
-import utils.AnormType._
 import java.util.UUID
+import play.api.db._
+import play.api.Play.current
 import org.joda.time.DateTime
+import utils.AnormType._
 
 /** A fetched content */
 case class Content(id: UUID, page_id: UUID, fetched_at: DateTime, first: Boolean, title: Option[String], body: String, content: String) {

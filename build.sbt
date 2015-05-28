@@ -17,9 +17,9 @@ scalacOptions ++= Seq(
 
 libraryDependencies ++= Seq(
 	jdbc,
-	anorm,
-	cache,
+	evolutions,
 	ws,
+	"com.typesafe.play" %% "anorm" % "2.4.0",
 	"org.postgresql" % "postgresql" % "9.4-1201-jdbc41",
 	"net.ruippeixotog" %% "scala-scraper" % "0.1.1"
 )
